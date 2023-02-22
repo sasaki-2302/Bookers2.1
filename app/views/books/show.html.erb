@@ -1,0 +1,14 @@
+<%= render 'layouts/user_info', book: @book %>
+<h2>Book detail</h2>
+<table>
+  <thead>
+    <td>
+      <%= link_to books_path do %>
+      <%= image_tag @books.get_image %><br>
+      <%= @books.user.name %>
+      <% end %>
+    </td>
+    <td><%= link_to @books.title, book_path(@books.id) %></td>
+    <td><%= @books.body %></td>
+  </thead>
+</table>
