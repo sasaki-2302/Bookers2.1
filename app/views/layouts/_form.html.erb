@@ -1,0 +1,10 @@
+<h2>New book</h2>
+<%= form_with model: book do |f| %>
+  <a>Image</a><br>
+  <%= f.file_field :image, accept: "image/*" %><br>
+  <a>Title</a><br>
+  <%= f.text_field :title %><br>
+  <a>Opinion</a><br>
+  <%= f.text_field :body %><br>
+  <%= f.submit 'Create Book' %>
+<% end %>

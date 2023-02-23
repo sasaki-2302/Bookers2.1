@@ -1,22 +1,15 @@
 <h2>User info</h2>
 <table>
+  <%= image_tag obj.get_profile_image(120,120) %>
   <thead>
     <th>name</th>
-    <th>obj</th>
+    <th><%= obj.name %></th>
   </thead>
   <thead>
     <th>introduction</th>
-    <th>obj</th>
+    <th><%= obj.introduction %></th>
   </thead>
 </table>
+<%= link_to "edit", edit_user_path(obj.id) %>
 
-<h2>New book</h2>
-<%= form_with model: book do |f| %>
-  <a>Image</a><br>
-  <%= f.file_field :image, accept: "image/*" %><br>
-  <a>Title</a><br>
-  <%= f.text_field :title %><br>
-  <a>Opinion</a><br>
-  <%= f.text_field :body %><br>
-  <%= f.submit 'Create Book' %>
-<% end %>
+<%= render "layouts/form", book: Book.new %>

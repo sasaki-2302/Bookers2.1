@@ -1,9 +1,9 @@
-<%= render 'layouts/user_info', book: @book %>
+<%= render 'layouts/user_info', obj: @books.user %>
 <h2>Book detail</h2>
 <table>
   <thead>
     <td>
-      <%= link_to books_path do %>
+      <%= link_to user_path(@books.user.id) do %>
       <%= image_tag @books.get_image %><br>
       <%= @books.user.name %>
       <% end %>
