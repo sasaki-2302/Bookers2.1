@@ -4,8 +4,8 @@
   <thead>
     <td>
       <%= link_to user_path(@books.user.id) do %>
-      <%= image_tag @books.get_image %><br>
-      <%= @books.user.name %>
+        <%= image_tag @books.get_image %><br>
+        <%= @books.user.name %>
       <% end %>
     </td>
     <td><%= link_to @books.title, book_path(@books.id) %></td>
