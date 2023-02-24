@@ -1,22 +1,29 @@
-<%= render 'layouts/user_info', obj: @user %>
-<h2>Books</h2>
-<table>
-  <thead>
-    <th>Image</th>
-    <th>Title</th>
-    <th>Opinion</th>
-  </thead>
-  <% @books.each do |books| %>
-    <tbody>
-      <td>
-        <%= link_to user_path(@user) do %>
-          <%= image_tag books.get_image %>
+<div><%= flash[:notice] %></div>
+<div class="container">
+  <div class="row">
+    <%= render 'layouts/user_info', obj: @user %>
+    <div class="col-md-8 offset-md-1">
+      <h2>Books</h2>
+      <table class="table">
+        <thead>
+          <th></th>
+          <th>Title</th>
+          <th>Opinion</th>
+        </thead>
+        <% @books.each do |books| %>
+          <tbody>
+            <td>
+              <%= link_to user_path(@user) do %>
+                <%= image_tag books.get_image(100,100) %>
+              <% end %>
+            </td>
+            <td>
+              <%= link_to books.title, book_path(books.id) %>
+            </td>
+            <td><%= books.body %></td>
+          </tbody>
         <% end %>
-      </td>
-      <td>
-        <%= link_to books.title, book_path(books.id) %>
-      </td>
-      <td><%= books.body %></td>
-    </tbody>
-  <% end %>
-</table>
+      </table>
+    </div>
+  </div>
+</div>

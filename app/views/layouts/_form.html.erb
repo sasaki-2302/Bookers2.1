@@ -1,10 +1,18 @@
 <h2>New book</h2>
 <%= form_with model: book do |f| %>
-  <a>Image</a><br>
-  <%= f.file_field :image, accept: "image/*" %><br>
-  <a>Title</a><br>
-  <%= f.text_field :title %><br>
-  <a>Opinion</a><br>
-  <%= f.text_field :body %><br>
-  <%= f.submit 'Create Book' %>
+  <div class="form-group">
+    <label for="inputImage">Images</label>
+    <%= f.file_field :image, accept: "image/*", class: "form-control-file" %>
+  </div>
+  <div class="form-group">
+    <label for="inputTitle">Name</label>
+    <%= f.text_field :title, id: "inputtitle", class: "form-control" %>
+  </div>
+  <div class="form-group">
+    <label for="inputBody">Opinion</label>
+    <%= f.text_field :body, id: "inputbody", class: "form-control" %>
+  </div>
+  <div class="form-group">
+    <%= f.submit "Create Book", class: "btn btn-success" %>
+  </div>
 <% end %>

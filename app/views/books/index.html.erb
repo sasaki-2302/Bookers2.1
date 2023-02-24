@@ -1,12 +1,13 @@
-<%= render 'layouts/errors', obj: @book %>
+<div><%= flash[:notice] %></div>
 <div class="container">
+  <%= render 'layouts/errors', obj: @book %>
   <div class="row">
     <%= render 'layouts/user_info', obj: current_user %>
     <div class="col-md-8 offset-md-1">
       <h2>Books</h2>
       <table class="table">
         <thead>
-          <th>Image</th>
+          <th></th>
           <th>Title</th>
           <th>Opinion</th>
         </thead>
@@ -14,7 +15,7 @@
         <tbody>
           <td>
             <%= link_to user_path(books.user.id) do %>
-              <%= image_tag books.get_image %>
+              <%= image_tag books.get_image(100,100) %>
             <% end %>
           </td>
           <td><%= link_to books.title, book_path(books.id) %></td>

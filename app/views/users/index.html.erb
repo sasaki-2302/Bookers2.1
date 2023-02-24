@@ -1,18 +1,24 @@
-<%= render 'layouts/user_info', obj: current_user %>
-<h1>Users</h1>
-<table>
-  <thead>
-    <th>Image</th>
-    <th>Name</th>
-    <tH></tH>
-  </thead>
-  <% @user.each do |user| %>
-    <tbody>
-      <td><%= image_tag user.get_profile_image(100,100) %></td>
-      <td><%= user.name %></td>
-      <td>
-        <%= link_to "Show", user_path(user.id) %>
-      </td>
-    </tbody>
-  <% end %>
-</table>
+<div class="container">
+  <div class="row">
+    <%= render 'layouts/user_info', obj: current_user %>
+    <div class="col-md-8 offset-md-1">
+      <h1>Users</h1>
+      <table class="table">
+        <thead>
+          <th></th>
+          <th>Name</th>
+          <tH></tH>
+        </thead>
+        <% @user.each do |user| %>
+          <tbody>
+            <td><%= image_tag user.get_profile_image(100,100) %></td>
+            <td><%= user.name %></td>
+            <td>
+              <%= link_to "Show", user_path(user.id) %>
+            </td>
+          </tbody>
+        <% end %>
+      </table>
+    </div>
+  </div>
+</div>
