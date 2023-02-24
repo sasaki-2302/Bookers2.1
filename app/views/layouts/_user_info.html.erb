@@ -1,15 +1,17 @@
-<h2>User info</h2>
-<table>
-  <%= image_tag obj.get_profile_image(120,120) %>
-  <thead>
-    <th>name</th>
-    <th><%= obj.name %></th>
-  </thead>
-  <thead>
-    <th>introduction</th>
-    <th><%= obj.introduction %></th>
-  </thead>
-</table>
-<%= link_to "edit", edit_user_path(obj.id) %>
+<div class="col-md-3">
+  <h2>User info</h2>
+  <table class="table">
+    <%= image_tag obj.get_profile_image(120,120) %>
+    <thead>
+      <th>name</th>
+      <th><%= obj.name %></th>
+    </thead>
+    <thead>
+      <th>introduction</th>
+      <th><%= obj.introduction %></th>
+    </thead>
+  </table>
+  <%= link_to "edit", edit_user_path(obj.id) %>
 
-<%= render "layouts/form", book: Book.new %>
+  <%= render "layouts/form", book: Book.new %>
+</div>
