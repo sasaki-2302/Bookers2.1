@@ -11,8 +11,10 @@
       <th><%= obj.introduction %></th>
     </thead>
   </table>
-  <%= link_to edit_user_path(obj.id), class: 'btn btn-outline-secondary btn-block' do %>
-    <i class="fas fa-user-cog"></i>
+  <% if obj.name != "guestuser" %>
+    <%= link_to edit_user_path(obj.id), class: 'btn btn-outline-secondary btn-block' do %>
+      <i class="fas fa-user-cog"></i>
+    <% end %>
   <% end %>
 
   <%= render "layouts/form", book: Book.new %>
