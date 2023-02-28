@@ -9,7 +9,7 @@ class BooksController < ApplicationController
       redirect_to book_path(@book.id)
     else
       @books = Book.all
-      render 'books/index'
+      render "books/index"
     end
   end
 
@@ -34,7 +34,7 @@ class BooksController < ApplicationController
       redirect_to book_path(@book)
     else
       @book
-      render 'books/edit'
+      render "books/edit"
     end
   end
 
@@ -45,15 +45,14 @@ class BooksController < ApplicationController
   end
 
   private
-
-  def book_params
-    params.require(:book).permit(:title, :body, :image)
-  end
-
-  def is_matching_book_login_user
-    book = Book.find(params[:id])
-    unless book.user.id == current_user.id
-      redirect_to books_path
+    def book_params
+      params.require(:book).permit(:title, :body, :image)
     end
-  end
+
+    def is_matching_book_login_user
+      book = Book.find(params[:id])
+      unless book.user.id == current_user.id
+        redirect_to books_path
+      end
+    end
 end
