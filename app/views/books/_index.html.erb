@@ -1,0 +1,37 @@
+<h2>Books</h2>
+<table class="table">
+  <thead>
+    <th></th>
+    <th>Title</th>
+    <th>Opinion</th>
+    <th>Comment</th>
+    <th>Fav</th>
+  </thead>
+  <% obj.each do |obj| %>
+  <tbody>
+    <td>
+      <%= link_to user_path(obj.user.id) do %>
+        <%= image_tag obj.get_image(100,100) %>
+      <% end %>
+    </td>
+    <td><%= link_to obj.title, book_path(obj.id) %></td>
+    <td><%= obj.body %></td>
+    <td><%= link_to "コメント#{obj.book_comments.count}件", book_path(obj.id) %></td>
+    <td>
+      <% if obj.favorited_by?(current_user) %>
+        <p>
+          <%= link_to book_favorites_path(obj), method: :delete do %>
+            ♥<%= obj.favorites.count %>
+          <% end %>
+        </p>
+        <% else %>
+        <p>
+          <%= link_to book_favorites_path(obj), method: :post do %>
+            ♡<%= obj.favorites.count %>
+          <% end %>
+        </p>
+      <% end %>
+    </td>
+  </tbody>
+  <% end %>
+</table>
